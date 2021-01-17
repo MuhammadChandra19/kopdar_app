@@ -34,7 +34,7 @@ class AppModule extends MainModule {
   @override
   Widget get bootstrap => MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Spelwijk',
+        title: 'Kopdar',
         theme: ThemeData(primarySwatch: Colors.blue),
         navigatorKey: RouteHelper().key,
         navigatorObservers: <NavigatorObserver>[

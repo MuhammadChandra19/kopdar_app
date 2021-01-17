@@ -6,10 +6,7 @@ import 'package:kopdar_app/modules/profile/my-profile/page/view.dart';
 import 'package:kopdar_app/widgets/models/bottom_nav_model.dart';
 
 List<BottomNav> bottomNavList = [
-  BottomNav(
-      page: HomeView(),
-      title: Text('Kopdar'),
-      icon: Icon(FontAwesomeIcons.home)),
+  BottomNav(page: HomeView(), title: Text('Kopdar'), icon: Icon(Icons.home)),
   BottomNav(
       page: ChatView(), title: Text('Chat'), icon: Icon(Icons.chat_bubble)),
   BottomNav(

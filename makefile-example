@@ -1,0 +1,5 @@
+SRC_DIR := path/to/proto/file
+
+gen:
+	protoc user.proto --proto_path=${SRC_DIR} --dart_out=grpc:lib/core/api/v1/user
+	protoc chat.proto --proto_path=${SRC_DIR} --dart_out=grpc:lib/core/api/v1/chat

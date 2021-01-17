@@ -1,8 +1,8 @@
 ///
 //  Generated code. Do not modify.
-//  source: proto.proto
+//  source: user.proto
 //
-// @dart = 2.3
+// @dart = 2.7
 // ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
 
 import 'dart:core' as $core;
@@ -19,7 +19,27 @@ class User extends $pb.GeneratedMessage {
   ;
 
   User._() : super();
-  factory User() => create();
+  factory User({
+    $core.String username,
+    $core.String email,
+    $core.String name,
+    $core.String photourl,
+  }) {
+    final _result = create();
+    if (username != null) {
+      _result.username = username;
+    }
+    if (email != null) {
+      _result.email = email;
+    }
+    if (name != null) {
+      _result.name = name;
+    }
+    if (photourl != null) {
+      _result.photourl = photourl;
+    }
+    return _result;
+  }
   factory User.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory User.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
@@ -85,7 +105,15 @@ class SignInRequest extends $pb.GeneratedMessage {
   ;
 
   SignInRequest._() : super();
-  factory SignInRequest() => create();
+  factory SignInRequest({
+    $core.String email,
+  }) {
+    final _result = create();
+    if (email != null) {
+      _result.email = email;
+    }
+    return _result;
+  }
   factory SignInRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory SignInRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
@@ -124,7 +152,15 @@ class RegisterResponse extends $pb.GeneratedMessage {
   ;
 
   RegisterResponse._() : super();
-  factory RegisterResponse() => create();
+  factory RegisterResponse({
+    User result,
+  }) {
+    final _result = create();
+    if (result != null) {
+      _result.result = result;
+    }
+    return _result;
+  }
   factory RegisterResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory RegisterResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
@@ -165,7 +201,15 @@ class SearchParams extends $pb.GeneratedMessage {
   ;
 
   SearchParams._() : super();
-  factory SearchParams() => create();
+  factory SearchParams({
+    $core.String query,
+  }) {
+    final _result = create();
+    if (query != null) {
+      _result.query = query;
+    }
+    return _result;
+  }
   factory SearchParams.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory SearchParams.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
@@ -204,7 +248,15 @@ class SearchResponse extends $pb.GeneratedMessage {
   ;
 
   SearchResponse._() : super();
-  factory SearchResponse() => create();
+  factory SearchResponse({
+    $core.Iterable<User> users,
+  }) {
+    final _result = create();
+    if (users != null) {
+      _result.users.addAll(users);
+    }
+    return _result;
+  }
   factory SearchResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory SearchResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(

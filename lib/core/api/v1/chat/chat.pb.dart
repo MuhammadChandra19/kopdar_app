@@ -1,8 +1,8 @@
 ///
 //  Generated code. Do not modify.
-//  source: proto.proto
+//  source: chat.proto
 //
-// @dart = 2.3
+// @dart = 2.7
 // ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
 
 import 'dart:core' as $core;
@@ -19,7 +19,27 @@ class ContentMessage extends $pb.GeneratedMessage {
   ;
 
   ContentMessage._() : super();
-  factory ContentMessage() => create();
+  factory ContentMessage({
+    $core.String roomKey,
+    $core.String email,
+    $core.String content,
+    $core.String type,
+  }) {
+    final _result = create();
+    if (roomKey != null) {
+      _result.roomKey = roomKey;
+    }
+    if (email != null) {
+      _result.email = email;
+    }
+    if (content != null) {
+      _result.content = content;
+    }
+    if (type != null) {
+      _result.type = type;
+    }
+    return _result;
+  }
   factory ContentMessage.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory ContentMessage.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
@@ -87,7 +107,23 @@ class StreamConnect extends $pb.GeneratedMessage {
   ;
 
   StreamConnect._() : super();
-  factory StreamConnect() => create();
+  factory StreamConnect({
+    $core.String name,
+    $core.String roomKey,
+    $core.bool active,
+  }) {
+    final _result = create();
+    if (name != null) {
+      _result.name = name;
+    }
+    if (roomKey != null) {
+      _result.roomKey = roomKey;
+    }
+    if (active != null) {
+      _result.active = active;
+    }
+    return _result;
+  }
   factory StreamConnect.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory StreamConnect.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
@@ -146,7 +182,23 @@ class Room extends $pb.GeneratedMessage {
   ;
 
   Room._() : super();
-  factory Room() => create();
+  factory Room({
+    $core.String roomKey,
+    $core.String type,
+    $core.String createdBy,
+  }) {
+    final _result = create();
+    if (roomKey != null) {
+      _result.roomKey = roomKey;
+    }
+    if (type != null) {
+      _result.type = type;
+    }
+    if (createdBy != null) {
+      _result.createdBy = createdBy;
+    }
+    return _result;
+  }
   factory Room.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory Room.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
@@ -205,7 +257,23 @@ class UserRoom extends $pb.GeneratedMessage {
   ;
 
   UserRoom._() : super();
-  factory UserRoom() => create();
+  factory UserRoom({
+    $core.String uUID,
+    $core.String roomKey,
+    $core.String userEmail,
+  }) {
+    final _result = create();
+    if (uUID != null) {
+      _result.uUID = uUID;
+    }
+    if (roomKey != null) {
+      _result.roomKey = roomKey;
+    }
+    if (userEmail != null) {
+      _result.userEmail = userEmail;
+    }
+    return _result;
+  }
   factory UserRoom.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory UserRoom.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
@@ -264,7 +332,23 @@ class Point extends $pb.GeneratedMessage {
   ;
 
   Point._() : super();
-  factory Point() => create();
+  factory Point({
+    $core.String roomKey,
+    $core.int latitude,
+    $core.int longitude,
+  }) {
+    final _result = create();
+    if (roomKey != null) {
+      _result.roomKey = roomKey;
+    }
+    if (latitude != null) {
+      _result.latitude = latitude;
+    }
+    if (longitude != null) {
+      _result.longitude = longitude;
+    }
+    return _result;
+  }
   factory Point.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory Point.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
@@ -323,7 +407,23 @@ class ResponseStream extends $pb.GeneratedMessage {
   ;
 
   ResponseStream._() : super();
-  factory ResponseStream() => create();
+  factory ResponseStream({
+    $core.bool isMessage,
+    ContentMessage message,
+    Point point,
+  }) {
+    final _result = create();
+    if (isMessage != null) {
+      _result.isMessage = isMessage;
+    }
+    if (message != null) {
+      _result.message = message;
+    }
+    if (point != null) {
+      _result.point = point;
+    }
+    return _result;
+  }
   factory ResponseStream.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory ResponseStream.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(

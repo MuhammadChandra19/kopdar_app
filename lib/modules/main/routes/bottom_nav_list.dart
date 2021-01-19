@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:kopdar_app/modules/chat/chat-screen/page/view.dart';
+import 'package:kopdar_app/modules/chat/pages/chat-screen/page/view.dart';
 import 'package:kopdar_app/modules/home/page/view.dart';
 import 'package:kopdar_app/modules/profile/my-profile/page/view.dart';
 import 'package:kopdar_app/widgets/models/bottom_nav_model.dart';

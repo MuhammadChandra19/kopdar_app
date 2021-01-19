@@ -5,10 +5,10 @@ class DBQueries {
     DBType.DEFAULT: {
       0: [],
       1: [
-        '''CREATE TABLE IF NOT EXISTS user ( id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, photo_url TEXT)''',
-        '''CREATE TABLE IF NOT EXISTS room ( id INTEGER PRIMARY KEY AUTOINCREMENT, room_name TEXT, last_message TEXT, last_message_time)''',
-        '''CREATE TABLE IF NOT EXISTS user_room ( id INTEGER PRIMARY KEY AUTOINCREMENT, room_id TEXT, user_id TEXT)''',
-        '''CREATE TABLE IF NOT EXISTS chat ( id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT, content TEXT, content_type TEXT, send_at TEXT, status TEXT)'''
+        '''CREATE TABLE IF NOT EXISTS user ( user_id TEXT PRIMARY KEY, username TEXT, photo_url BLOB)''',
+        '''CREATE TABLE IF NOT EXISTS points ( user_id TEXT PRIMARY KEY, lat REAL, lon REAL )''',
+        '''CREATE TABLE IF NOT EXISTS room ( room_name TEXT PRIMARY KEY, photo_url BLOB, last_message TEXT, last_message_time)''',
+        '''CREATE TABLE IF NOT EXISTS chat ( id INTEGER PRIMARY KEY AUTOINCREMENT, room_name TEXT, content TEXT, content_type TEXT, send_at TEXT, status TEXT)'''
       ]
     }
   };
@@ -18,7 +18,7 @@ class DBQueries {
     List<String> queries = <String>[];
     var queriesCreateByType = DBQueries.queriesCreate[dbType];
     var keys = queriesCreateByType.keys.toList();
-
+    print("run database");
     for (int i = oldVersion + 1; i <= currversion; i++) {
       /* if the key in the map exist then continue */
       if (queriesCreateByType.containsKey(keys[i]) &&

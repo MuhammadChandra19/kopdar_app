@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:kopdar_app/config/database/helper/initial.dart';
 import 'package:kopdar_app/modules/app/page/page.dart';
 import 'package:kopdar_app/modules/auth/route/path.dart';
 import 'package:kopdar_app/modules/main/page/page.dart';
@@ -18,6 +19,14 @@ class Init extends StatelessWidget {
 
   Future init() async {
     initEnv();
+
+    //init database
+    try {
+      await InitialDatabaseHelper().open();
+    } catch (e, s) {
+      debugPrint('$e--\n$s');
+    }
+
     Path().registerNames(
         {AppPage.PATH: AppPage.NAME, ...authPath, ...mainAppPath});
     RouteHelper().setKey(Modular.navigatorKey);

@@ -9,11 +9,11 @@ class Env {
   }
 
   String serverIP;
-  String serverPort;
+  int serverPort;
   EnvType environmentType;
 
   void setDev() {
     serverIP = '10.0.2.2';
-    serverPort = '8080';
+    serverPort = 8080;
   }
 }

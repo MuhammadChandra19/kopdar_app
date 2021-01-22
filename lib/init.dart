@@ -5,6 +5,7 @@ import 'package:kopdar_app/modules/app/page/page.dart';
 import 'package:kopdar_app/modules/auth/route/path.dart';
 import 'package:kopdar_app/modules/main/page/page.dart';
 import 'package:kopdar_app/modules/main/routes/path.dart';
+import 'package:kopdar_app/modules/room/routes/path.dart';
 import 'package:kopdar_app/utils/helper/route/path.dart';
 import 'package:kopdar_app/utils/helper/route/route_helper.dart';
 
@@ -28,7 +29,7 @@ class Init extends StatelessWidget {
     }
 
     Path().registerNames(
-        {AppPage.PATH: AppPage.NAME, ...authPath, ...mainAppPath});
+        {AppPage.PATH: AppPage.NAME, ...authPath, ...mainAppPath, ...roomPath});
     RouteHelper().setKey(Modular.navigatorKey);
     return 'next';
   }

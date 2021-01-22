@@ -22,10 +22,10 @@ const SignInRequest$json = const {
   ],
 };
 
-const RegisterResponse$json = const {
-  '1': 'RegisterResponse',
+const TokenResponse$json = const {
+  '1': 'TokenResponse',
   '2': const [
-    const {'1': 'result', '3': 1, '4': 1, '5': 11, '6': '.v1.User', '10': 'result'},
+    const {'1': 'token', '3': 1, '4': 1, '5': 9, '10': 'token'},
   ],
 };
 

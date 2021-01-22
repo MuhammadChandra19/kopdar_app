@@ -145,53 +145,51 @@ class SignInRequest extends $pb.GeneratedMessage {
   void clearEmail() => clearField(1);
 }
 
-class RegisterResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RegisterResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'v1'), createEmptyInstance: create)
-    ..aOM<User>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'result', subBuilder: User.create)
+class TokenResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TokenResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'v1'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'token')
     ..hasRequiredFields = false
   ;
 
-  RegisterResponse._() : super();
-  factory RegisterResponse({
-    User result,
+  TokenResponse._() : super();
+  factory TokenResponse({
+    $core.String token,
   }) {
     final _result = create();
-    if (result != null) {
-      _result.result = result;
+    if (token != null) {
+      _result.token = token;
     }
     return _result;
   }
-  factory RegisterResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory RegisterResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory TokenResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory TokenResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  RegisterResponse clone() => RegisterResponse()..mergeFromMessage(this);
+  TokenResponse clone() => TokenResponse()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  RegisterResponse copyWith(void Function(RegisterResponse) updates) => super.copyWith((message) => updates(message as RegisterResponse)); // ignore: deprecated_member_use
+  TokenResponse copyWith(void Function(TokenResponse) updates) => super.copyWith((message) => updates(message as TokenResponse)); // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static RegisterResponse create() => RegisterResponse._();
-  RegisterResponse createEmptyInstance() => create();
-  static $pb.PbList<RegisterResponse> createRepeated() => $pb.PbList<RegisterResponse>();
+  static TokenResponse create() => TokenResponse._();
+  TokenResponse createEmptyInstance() => create();
+  static $pb.PbList<TokenResponse> createRepeated() => $pb.PbList<TokenResponse>();
   @$core.pragma('dart2js:noInline')
-  static RegisterResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RegisterResponse>(create);
-  static RegisterResponse _defaultInstance;
+  static TokenResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TokenResponse>(create);
+  static TokenResponse _defaultInstance;
 
   @$pb.TagNumber(1)
-  User get result => $_getN(0);
+  $core.String get token => $_getSZ(0);
   @$pb.TagNumber(1)
-  set result(User v) { setField(1, v); }
+  set token($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasResult() => $_has(0);
+  $core.bool hasToken() => $_has(0);
   @$pb.TagNumber(1)
-  void clearResult() => clearField(1);
-  @$pb.TagNumber(1)
-  User ensureResult() => $_ensure(0);
+  void clearToken() => clearField(1);
 }
 
 class SearchParams extends $pb.GeneratedMessage {

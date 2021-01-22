@@ -4,7 +4,8 @@ import 'package:kopdar_app/modules/app/bloc/bloc.dart';
 import 'package:kopdar_app/modules/app/bloc/event.dart';
 import 'package:kopdar_app/modules/app/data/authorization_token.dart';
 import 'package:kopdar_app/modules/app/page/page.dart';
-import 'package:kopdar_app/modules/auth/signin/page/page.dart';
+import 'package:kopdar_app/modules/auth/register/page/page.dart';
+// import 'package:kopdar_app/modules/auth/signin/page/page.dart';
 import 'package:kopdar_app/utils/helper/route/route_helper.dart';
 
 class AppInitiator extends CoreInitiator {
@@ -28,6 +29,7 @@ class AppInitiator extends CoreInitiator {
   }
 
   void onLogoutPage() {
-    RouteHelper().navigateToNamedAndRemoveUntil(SignInPage.PATH, AppPage.PATH);
+    RouteHelper()
+        .navigateToNamedAndRemoveUntil(RegisterPage.PATH, AppPage.PATH);
   }
 }

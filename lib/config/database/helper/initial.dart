@@ -9,7 +9,6 @@ class InitialDatabaseHelper extends CoreDatabaseHelper {
   factory InitialDatabaseHelper() => instance;
 
   @override
-  // TODO: implement databaseConfig
   DatabaseConfig get databaseConfig =>
       DatabaseConfig(1, "kopdar.db", DBMigrationListener());
 

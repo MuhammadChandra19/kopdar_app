@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kopdar_app/modules/chat/data/room.dart';
+import 'package:kopdar_app/modules/room/data/room.dart';
 
 class RoomItem extends StatelessWidget {
   final RoomData room;

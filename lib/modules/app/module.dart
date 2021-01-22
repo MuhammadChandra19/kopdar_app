@@ -7,6 +7,7 @@ import 'package:kopdar_app/modules/app/service/session_service.dart';
 import 'package:kopdar_app/modules/auth/auth_module.dart';
 import 'package:kopdar_app/modules/main/main_module.dart';
 import 'package:kopdar_app/modules/main/page/page.dart';
+import 'package:kopdar_app/modules/room/room_module.dart';
 import 'package:kopdar_app/utils/helper/route/route_helper.dart';
 import 'package:kopdar_app/utils/helper/route/route_logger.dart';
 import 'package:kopdar_app/utils/helper/validator.dart';
@@ -29,7 +30,10 @@ class AppModule extends MainModule {
   }
 
   @override
-  List<Bind> get binds => [Bind((i) => _service), Bind((i) => SessionBloc())];
+  List<Bind> get binds => [
+        Bind((i) => _service),
+        Bind((i) => SessionBloc()),
+      ];
 
   @override
   Widget get bootstrap => MaterialApp(
@@ -51,5 +55,6 @@ class AppModule extends MainModule {
         ),
         ModularRouter(MainLayout.PATH, module: LayoutModule()),
         ModularRouter(AuthModule.PATH, module: AuthModule()),
+        ModularRouter(RoomModule.PATH, module: RoomModule())
       ];
 }

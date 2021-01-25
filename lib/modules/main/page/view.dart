@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kopdar_app/modules/main/routes/bottom_nav_list.dart';
+import 'package:kopdar_app/modules/user/search_user/page/page.dart';
+import 'package:kopdar_app/utils/helper/route/route_helper.dart';
 
 class MainLayoutView extends StatefulWidget {
   @override
@@ -22,6 +24,19 @@ class _MainLayoutViewState extends State<MainLayoutView> {
           title: bottomNavList[_selectedPageIndex].title,
           centerTitle: true,
           automaticallyImplyLeading: false,
+          actions: [
+            Padding(
+                padding: EdgeInsets.only(right: 10.0),
+                child: GestureDetector(
+                  onTap: () {
+                    RouteHelper().navigateToNamed(SearchUserPage.PATH);
+                  },
+                  child: Icon(
+                    Icons.search,
+                    size: 26.0,
+                  ),
+                )),
+          ],
         ),
         body: IndexedStack(
           index: _selectedPageIndex,

@@ -1,10 +1,19 @@
 import 'package:grpc/grpc.dart';
-import 'package:kopdar_app/config/environment/env.dart';
+import 'package:kopdar_app/modules/app/data/authorization_token.dart';
 
 class NetworkRPCLibrary {
+  NetworkRPCLibrary._();
+  static final NetworkRPCLibrary _instance = NetworkRPCLibrary._();
+  factory NetworkRPCLibrary() => _instance;
+
+  AuthorizationToken authorization = AuthorizationToken.initial();
+  void setAuthorization(AuthorizationToken token) {
+    this.authorization = token;
+  }
+
   ClientChannel baseClient<T>() {
-    var channel = ClientChannel(Env().serverIP,
-        port: Env().serverPort,
+    var channel = ClientChannel('localhost',
+        port: 8080,
         options:
             const ChannelOptions(credentials: ChannelCredentials.insecure()));
     return channel;

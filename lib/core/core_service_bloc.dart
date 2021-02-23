@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:grpc/grpc.dart';
+
 import 'package:protobuf/protobuf.dart' as $pb;
 
 abstract class CoreServiceBloc<Event, State> extends Bloc<Event, State> {
@@ -22,6 +24,26 @@ abstract class CoreServiceBloc<Event, State> extends Bloc<Event, State> {
       });
     } catch (e, _) {
       yield alternativeDefaultErrorState(e);
+    }
+  }
+
+  Stream<State> stream<ResponseType extends $pb.GeneratedMessage>({
+    @required ResponseStream<ResponseType> request,
+    @required successState(ResponseType result, State prevState),
+    @required restart(),
+    @required shutdown(),
+    State Function(dynamic error) alternativeDefaultErrorState,
+  }) async* {
+    _prevState = state;
+    try {
+      await for (var res in request) {
+        successState(res, _prevState);
+      }
+    } catch (e, _) {
+      shutdown();
+      Future.delayed(Duration(seconds: 30), () {
+        restart();
+      });
     }
   }
 }

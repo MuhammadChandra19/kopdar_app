@@ -7,9 +7,9 @@ class DBQueries {
       1: [
         '''CREATE TABLE IF NOT EXISTS user ( user_id TEXT PRIMARY KEY, username TEXT, photo_url BLOB)''',
         '''CREATE TABLE IF NOT EXISTS points ( user_id TEXT PRIMARY KEY, lat REAL, lon REAL )''',
-        '''CREATE TABLE IF NOT EXISTS room ( room_name TEXT PRIMARY KEY, photo_url BLOB, last_message TEXT, last_message_time TEXT)''',
-        '''CREATE TABLE IF NOT EXISTS chat ( id INTEGER PRIMARY KEY AUTOINCREMENT, room_name TEXT, content TEXT, content_type TEXT, send_at TEXT, status TEXT)'''
-      ]
+        '''CREATE TABLE IF NOT EXISTS room ( room_name TEXT PRIMARY KEY, photo_url BLOB, last_message TEXT, last_message_time TEXT, photo_string TEXT)''',
+        '''CREATE TABLE IF NOT EXISTS chat ( id INTEGER PRIMARY KEY AUTOINCREMENT, room_name TEXT, content TEXT, content_type TEXT, send_at TEXT, status TEXT, sender TEXT)'''
+      ],
     }
   };
 

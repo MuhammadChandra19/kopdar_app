@@ -1,14 +1,18 @@
 import 'dart:convert';
 
 class ChatData {
+  final int id;
   final String roomName;
+  final String sender;
   final String content;
   final String contentType;
   final String sendAt;
   final String status;
 
   ChatData(
-      {this.roomName,
+      {this.id,
+      this.sender,
+      this.roomName,
       this.content,
       this.contentType,
       this.sendAt,
@@ -18,6 +22,7 @@ class ChatData {
     return {
       'room_name': roomName,
       'content': content,
+      'is_from_current_user': sender,
       'content_type': contentType,
       'send_at': sendAt,
       'status': status,
@@ -28,9 +33,11 @@ class ChatData {
     if (map == null) return null;
 
     return ChatData(
+      id: map['id'],
       roomName: map['room_name'],
       content: map['content'],
       contentType: map['content_type'],
+      sender: map['sender'],
       sendAt: map['send_at'],
       status: map['status'],
     );

@@ -9,9 +9,10 @@ const ContentMessage$json = const {
   '1': 'ContentMessage',
   '2': const [
     const {'1': 'room_key', '3': 1, '4': 1, '5': 9, '10': 'roomKey'},
-    const {'1': 'email', '3': 2, '4': 1, '5': 9, '10': 'email'},
-    const {'1': 'content', '3': 3, '4': 1, '5': 9, '10': 'content'},
-    const {'1': 'type', '3': 4, '4': 1, '5': 9, '10': 'type'},
+    const {'1': 'sender', '3': 2, '4': 1, '5': 9, '10': 'sender'},
+    const {'1': 'email', '3': 3, '4': 1, '5': 9, '10': 'email'},
+    const {'1': 'content', '3': 4, '4': 1, '5': 9, '10': 'content'},
+    const {'1': 'type', '3': 5, '4': 1, '5': 9, '10': 'type'},
   ],
 };
 
@@ -51,8 +52,8 @@ const Point$json = const {
   ],
 };
 
-const ResponseStream$json = const {
-  '1': 'ResponseStream',
+const StreamResponse$json = const {
+  '1': 'StreamResponse',
   '2': const [
     const {'1': 'is_message', '3': 1, '4': 1, '5': 8, '10': 'isMessage'},
     const {'1': 'message', '3': 2, '4': 1, '5': 11, '6': '.v1.ContentMessage', '10': 'message'},

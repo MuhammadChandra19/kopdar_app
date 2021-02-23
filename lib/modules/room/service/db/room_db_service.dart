@@ -1,4 +1,6 @@
 import 'package:kopdar_app/modules/room/data/room.dart';
+import 'package:kopdar_app/utils/helper/helper.dart';
+import 'package:kopdar_app/utils/helper/validator.dart';
 import 'package:sqflite/sqlite_api.dart';
 
 class RoomDatabaseService {
@@ -26,6 +28,12 @@ class RoomDatabaseService {
   Future<int> deleteRoom(String roomName) async {
     return database
         .delete('room', where: 'room_name = ?', whereArgs: [roomName]);
+  }
+
+  Future<bool> isRoomExist(String roomName) async {
+    var result = await database
+        .query('room', where: 'room_name = ?', whereArgs: [roomName]);
+    return Validator.isListNullOrEmpty(result);
   }
 
   Future<List<RoomData>> getRoomList() async {

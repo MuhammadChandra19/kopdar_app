@@ -7,7 +7,11 @@ class ChatDatabaseService {
   ChatDatabaseService({this.database});
 
   Future<void> insertChat(ChatData chatData) async {
-    await database.insert('chat', {...chatData.toMap()});
+    try {
+      await database.insert('chat', {...chatData.toMap()});
+    } catch (e, _) {
+      print(e);
+    }
   }
 
   Future<List<ChatData>> getHistoryChat(String roomName) async {

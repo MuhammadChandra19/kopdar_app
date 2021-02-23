@@ -3,6 +3,7 @@ import 'package:kopdar_app/modules/app/data/authorization_token.dart';
 
 class NetworkRPCLibrary {
   NetworkRPCLibrary._();
+
   static final NetworkRPCLibrary _instance = NetworkRPCLibrary._();
   factory NetworkRPCLibrary() => _instance;
 
@@ -11,11 +12,12 @@ class NetworkRPCLibrary {
     this.authorization = token;
   }
 
-  ClientChannel baseClient<T>() {
-    var channel = ClientChannel('localhost',
+  ClientChannel createChannel() {
+    return ClientChannel('localhost',
         port: 8080,
         options:
             const ChannelOptions(credentials: ChannelCredentials.insecure()));
-    return channel;
   }
+
+  void shutdown() {}
 }

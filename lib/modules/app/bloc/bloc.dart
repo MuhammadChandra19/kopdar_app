@@ -2,9 +2,12 @@ import 'package:kopdar_app/core/core_service_bloc.dart';
 import 'package:kopdar_app/modules/app/bloc/event.dart';
 import 'package:kopdar_app/modules/app/bloc/state.dart';
 import 'package:kopdar_app/modules/app/data/authorization_token.dart';
+import 'package:kopdar_app/modules/app/data/profile.dart';
 import 'package:kopdar_app/modules/app/data/user_app_info.dart';
+import 'package:kopdar_app/utils/helper/validator.dart';
 import 'package:kopdar_app/utils/storage/storage.dart';
 import 'package:kopdar_app/utils/storage/storage_keys.dart';
+import 'package:jwt_decode/jwt_decode.dart';
 
 class SessionBloc extends CoreServiceBloc<SessionEvent, SessionState> {
   SessionBloc() : super(SessionUninitialized());
@@ -47,12 +50,19 @@ class SessionBloc extends CoreServiceBloc<SessionEvent, SessionState> {
         : (state as SessionRunning);
     yield await UserAppInfo.getUserAppInfo().then((value) async {
       AuthorizationToken token = AuthorizationToken.initial();
+      Profile shortProfile = Profile();
       String authToken = await Storage()
           .retrieve(StorageKeys.storedAuthKey)
           .catchError((_) => null);
-      token = AuthorizationToken(authToken: authToken);
-      print(token.authToken);
-      return _state.copyWith(token: token, userAppInfo: value);
+      if (!Validator.isNullOrEmpty(authToken)) {
+        token = AuthorizationToken(authToken: authToken);
+        shortProfile = Profile.fromJWT(Jwt.parseJwt(authToken));
+      }
+
+      // Print the payload
+
+      return _state.copyWith(
+          token: token, userAppInfo: value, shortProfile: shortProfile);
     });
   }
 }

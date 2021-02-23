@@ -6,7 +6,7 @@ class UserService extends CoreRPCService<UserProtoClient> {
   static UserProtoClient client;
 
   UserService() {
-    client = UserProtoClient(network.baseClient(),
+    client = UserProtoClient(network.createChannel(),
         options: CallOptions(
             metadata: {'authorization': network.authorization.authToken}));
   }

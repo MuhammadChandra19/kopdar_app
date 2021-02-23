@@ -15,10 +15,10 @@ export 'chat.pb.dart';
 
 class ChatProtoClient extends $grpc.Client {
   static final _$createStream =
-      $grpc.ClientMethod<$0.StreamConnect, $0.ResponseStream>(
+      $grpc.ClientMethod<$0.StreamConnect, $0.StreamResponse>(
           '/v1.ChatProto/CreateStream',
           ($0.StreamConnect value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $0.ResponseStream.fromBuffer(value));
+          ($core.List<$core.int> value) => $0.StreamResponse.fromBuffer(value));
   static final _$sendMessage = $grpc.ClientMethod<$0.ContentMessage, $0.Empty>(
       '/v1.ChatProto/SendMessage',
       ($0.ContentMessage value) => value.writeToBuffer(),
@@ -41,7 +41,7 @@ class ChatProtoClient extends $grpc.Client {
       $core.Iterable<$grpc.ClientInterceptor> interceptors})
       : super(channel, options: options, interceptors: interceptors);
 
-  $grpc.ResponseStream<$0.ResponseStream> createStream($0.StreamConnect request,
+  $grpc.ResponseStream<$0.StreamResponse> createStream($0.StreamConnect request,
       {$grpc.CallOptions options}) {
     return $createStreamingCall(
         _$createStream, $async.Stream.fromIterable([request]),
@@ -73,13 +73,13 @@ abstract class ChatProtoServiceBase extends $grpc.Service {
   $core.String get $name => 'v1.ChatProto';
 
   ChatProtoServiceBase() {
-    $addMethod($grpc.ServiceMethod<$0.StreamConnect, $0.ResponseStream>(
+    $addMethod($grpc.ServiceMethod<$0.StreamConnect, $0.StreamResponse>(
         'CreateStream',
         createStream_Pre,
         false,
         true,
         ($core.List<$core.int> value) => $0.StreamConnect.fromBuffer(value),
-        ($0.ResponseStream value) => value.writeToBuffer()));
+        ($0.StreamResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.ContentMessage, $0.Empty>(
         'SendMessage',
         sendMessage_Pre,
@@ -110,7 +110,7 @@ abstract class ChatProtoServiceBase extends $grpc.Service {
         ($0.Empty value) => value.writeToBuffer()));
   }
 
-  $async.Stream<$0.ResponseStream> createStream_Pre(
+  $async.Stream<$0.StreamResponse> createStream_Pre(
       $grpc.ServiceCall call, $async.Future<$0.StreamConnect> request) async* {
     yield* createStream(call, await request);
   }
@@ -135,7 +135,7 @@ abstract class ChatProtoServiceBase extends $grpc.Service {
     return sharePoint(call, await request);
   }
 
-  $async.Stream<$0.ResponseStream> createStream(
+  $async.Stream<$0.StreamResponse> createStream(
       $grpc.ServiceCall call, $0.StreamConnect request);
   $async.Future<$0.Empty> sendMessage(
       $grpc.ServiceCall call, $0.ContentMessage request);

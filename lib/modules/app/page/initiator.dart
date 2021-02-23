@@ -1,12 +1,10 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:kopdar_app/config/network/RPC/network_rpc_library.dart';
 import 'package:kopdar_app/core/core_initiator.dart';
-import 'package:kopdar_app/core/core_rpc_service.dart';
 import 'package:kopdar_app/modules/app/bloc/bloc.dart';
 import 'package:kopdar_app/modules/app/bloc/event.dart';
 import 'package:kopdar_app/modules/app/data/authorization_token.dart';
 import 'package:kopdar_app/modules/app/page/page.dart';
-import 'package:kopdar_app/modules/auth/register/page/page.dart';
 import 'package:kopdar_app/modules/auth/signin/page/page.dart';
 // import 'package:kopdar_app/modules/auth/signin/page/page.dart';
 import 'package:kopdar_app/utils/helper/route/route_helper.dart';

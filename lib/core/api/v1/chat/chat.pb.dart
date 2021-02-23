@@ -12,15 +12,17 @@ import 'package:protobuf/protobuf.dart' as $pb;
 class ContentMessage extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ContentMessage', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'v1'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'roomKey')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'email')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'content')
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sender')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'email')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'content')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type')
     ..hasRequiredFields = false
   ;
 
   ContentMessage._() : super();
   factory ContentMessage({
     $core.String roomKey,
+    $core.String sender,
     $core.String email,
     $core.String content,
     $core.String type,
@@ -28,6 +30,9 @@ class ContentMessage extends $pb.GeneratedMessage {
     final _result = create();
     if (roomKey != null) {
       _result.roomKey = roomKey;
+    }
+    if (sender != null) {
+      _result.sender = sender;
     }
     if (email != null) {
       _result.email = email;
@@ -71,31 +76,40 @@ class ContentMessage extends $pb.GeneratedMessage {
   void clearRoomKey() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get email => $_getSZ(1);
+  $core.String get sender => $_getSZ(1);
   @$pb.TagNumber(2)
-  set email($core.String v) { $_setString(1, v); }
+  set sender($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasEmail() => $_has(1);
+  $core.bool hasSender() => $_has(1);
   @$pb.TagNumber(2)
-  void clearEmail() => clearField(2);
+  void clearSender() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get content => $_getSZ(2);
+  $core.String get email => $_getSZ(2);
   @$pb.TagNumber(3)
-  set content($core.String v) { $_setString(2, v); }
+  set email($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasContent() => $_has(2);
+  $core.bool hasEmail() => $_has(2);
   @$pb.TagNumber(3)
-  void clearContent() => clearField(3);
+  void clearEmail() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get type => $_getSZ(3);
+  $core.String get content => $_getSZ(3);
   @$pb.TagNumber(4)
-  set type($core.String v) { $_setString(3, v); }
+  set content($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasType() => $_has(3);
+  $core.bool hasContent() => $_has(3);
   @$pb.TagNumber(4)
-  void clearType() => clearField(4);
+  void clearContent() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get type => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set type($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasType() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearType() => clearField(5);
 }
 
 class StreamConnect extends $pb.GeneratedMessage {
@@ -398,16 +412,16 @@ class Point extends $pb.GeneratedMessage {
   void clearLongitude() => clearField(3);
 }
 
-class ResponseStream extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ResponseStream', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'v1'), createEmptyInstance: create)
+class StreamResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'StreamResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'v1'), createEmptyInstance: create)
     ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isMessage')
     ..aOM<ContentMessage>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'message', subBuilder: ContentMessage.create)
     ..aOM<Point>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'point', subBuilder: Point.create)
     ..hasRequiredFields = false
   ;
 
-  ResponseStream._() : super();
-  factory ResponseStream({
+  StreamResponse._() : super();
+  factory StreamResponse({
     $core.bool isMessage,
     ContentMessage message,
     Point point,
@@ -424,26 +438,26 @@ class ResponseStream extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory ResponseStream.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory ResponseStream.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory StreamResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory StreamResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  ResponseStream clone() => ResponseStream()..mergeFromMessage(this);
+  StreamResponse clone() => StreamResponse()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  ResponseStream copyWith(void Function(ResponseStream) updates) => super.copyWith((message) => updates(message as ResponseStream)); // ignore: deprecated_member_use
+  StreamResponse copyWith(void Function(StreamResponse) updates) => super.copyWith((message) => updates(message as StreamResponse)); // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static ResponseStream create() => ResponseStream._();
-  ResponseStream createEmptyInstance() => create();
-  static $pb.PbList<ResponseStream> createRepeated() => $pb.PbList<ResponseStream>();
+  static StreamResponse create() => StreamResponse._();
+  StreamResponse createEmptyInstance() => create();
+  static $pb.PbList<StreamResponse> createRepeated() => $pb.PbList<StreamResponse>();
   @$core.pragma('dart2js:noInline')
-  static ResponseStream getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ResponseStream>(create);
-  static ResponseStream _defaultInstance;
+  static StreamResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<StreamResponse>(create);
+  static StreamResponse _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.bool get isMessage => $_getBF(0);
